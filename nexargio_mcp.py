@@ -342,7 +342,7 @@ def _get_machine_fingerprint() -> str:
                 cid = f.read().strip()
                 if cid:
                     return cid
-        cid = str(uuid.uuid4())
+        cid = uuid.uuid4().hex
         with open(id_file, "w", encoding="utf-8") as f:
             f.write(cid)
         return cid
