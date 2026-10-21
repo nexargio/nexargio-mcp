@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" width="120" height="120" alt="Nexargio Threat Defense Logo">
+</p>
+
 # Nexargio Abhedya™: Sovereign Full-Duplex AI Defense Suite for MCP
 
 [![PyPI version](https://img.shields.io/badge/pypi-v2.0.1-00F0FF.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/nexargio-mcp/)

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://cursor.com/schemas/cursor-plugin/plugin.json",
+  "name": "nexargio-mcp",
+  "displayName": "Nexargio Threat Scanner",
+  "description": "Enterprise zero-day web threat, quishing, and carrier-grade AI defense suite for Cursor.",
+  "version": "2.0.1",
+  "icon": "assets/icon.png",
+  "logo": "assets/logo.png",
+  "author": {
+    "name": "Nexargio Technologies",
+    "email": "venkateshcto@nexargio.com",
+    "url": "https://www.nexargio.com"
+  }
+}
