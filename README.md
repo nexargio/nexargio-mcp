@@ -8,7 +8,7 @@
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg?style=flat-square&logo=python&logoColor=white)](https://pypi.org/project/nexargio-mcp/)
 [![Protocol](https://img.shields.io/badge/MCP-FastMCP%201.0+-emerald.svg?style=flat-square)](https://modelcontextprotocol.io/)
 [![Security](https://img.shields.io/badge/Security-Zero--Trust%20Full--Duplex-indigo.svg?style=flat-square)](#overview)
-[![License](https://img.shields.io/badge/license-Proprietary-amber.svg?style=flat-square)](https://nexargio.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg?style=flat-square)](LICENSE)
 
 > **The Sovereign Autonomous Cyber-Physics & Neural Threat Defense Corporation**  
 > `Nexargio Abhedya™` connects **Claude Desktop**, **Cursor IDE**, **Windsurf**, **Claude Code**, and **Autonomous AI Agents** directly to the high-assurance Nexargio Sovereign Threat Defense Platform.
@@ -20,7 +20,7 @@
 `nexargio-mcp` is an enterprise-grade Model Context Protocol (MCP) server engineered to protect AI workflows from zero-day web threats, credential harvesting, brand impersonation, weaponized carrier attachments, and unauthorized agent tool execution.
 
 Designed specifically for production enterprise AI environments:
-* **Sovereign by Default:** High-assurance cyber-physics evaluation with zero telemetry leakage to third-party ad networks or public threat aggregators.
+* **Architecture & Data Privacy:** Operates as a secure client connector interfacing with the official Nexargio Cloud Gateway API for real-time cyber-physics evaluation. Telemetry is evaluated fail-closed and is never shared or sold to third-party ad networks or public threat aggregators. Scans require an explicit `NEXARGIO_API_KEY`.
 * **Dual AI Execution Profiles:** Offers both **Fast Scan** (Deep Cognitive System-Two reasoning for forensic investigation) and **Ultra-Fast Scan** (Wire-speed real-time neural triage for high-volume automated SOAR pipelines).
 * **Polymorphic Threat Ingress:** Seamlessly inspects full web URLs, bare domain names, and automated machine-vision Quishing (QR code) matrices from local images, web assets, or clipboard data.
 * **Active Full-Duplex Defense:** Goes beyond passive link checks — delivers carrier-grade document prompt-injection disarming and real-time pre-execution policy governance for autonomous agent tool actions.

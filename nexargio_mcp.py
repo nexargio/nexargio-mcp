@@ -91,11 +91,10 @@ GATEWAY_URL = os.environ.get(
 ).rstrip("/")
 
 # API key is supplied by the operator via the environment -- never hard-coded.
-# If unset, nexargio-mcp automatically requests a complimentary 20-scan evaluation key
-# anchored to the hardware deployment ID. For high-volume enterprise pilots, request access
-# at https://www.nexargio.com/demo.
+# Users can configure NEXARGIO_API_KEY in their client config. To request an evaluation key,
+# visit https://www.nexargio.com/demo.
 API_KEY = os.environ.get("NEXARGIO_API_KEY", "").strip()
-_AUTO_TRIAL_ENABLED = os.environ.get("NEXARGIO_AUTO_TRIAL", "true").lower() in ("true", "1", "yes")
+_AUTO_TRIAL_ENABLED = os.environ.get("NEXARGIO_AUTO_TRIAL", "false").lower() in ("true", "1", "yes")
 
 
 def _env_float(name: str, default: float) -> float:
@@ -332,13 +331,23 @@ async def _try_decode_qr(target: str) -> Optional[str]:
 # ==============================================================================
 
 def _get_machine_fingerprint() -> str:
-    """Deterministic hardware & host environment fingerprint for anti-abuse."""
+    """Anonymous client installation identifier (standard session GUID)."""
     try:
-        import uuid, platform, getpass, hashlib
-        raw = f"{uuid.getnode()}:{platform.node()}:{getpass.getuser()}:{platform.system()}"
-        return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:32]
+        import uuid
+        base = os.path.expanduser("~/.nexargio")
+        os.makedirs(base, exist_ok=True)
+        id_file = os.path.join(base, "client_id")
+        if os.path.exists(id_file):
+            with open(id_file, "r", encoding="utf-8") as f:
+                cid = f.read().strip()
+                if cid:
+                    return cid
+        cid = str(uuid.uuid4())
+        with open(id_file, "w", encoding="utf-8") as f:
+            f.write(cid)
+        return cid
     except Exception:
-        return "mcp_client_fallback"
+        return "anonymous_client"
 
 
 def _get_trial_profile_path() -> str:
