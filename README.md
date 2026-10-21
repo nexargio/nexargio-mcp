@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/nexargio_brand_full.png" width="380" alt="Nexargio - Fortify. Outsmart. Future-Proof.">
+  <img src="assets/icon.png" width="140" height="140" alt="Nexargio Threat Defense Emblem">
 </p>
 
 # Nexargio Abhedya™: Sovereign Full-Duplex AI Defense Suite for MCP
