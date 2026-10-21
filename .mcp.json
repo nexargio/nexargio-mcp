@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "mcpServers": {
+    "nexargio": {
+      "command": "uvx",
+      "args": ["nexargio-mcp"],
+      "env": {
+        "NEXARGIO_API_KEY": ""
+      }
+    }
+  }
+}
