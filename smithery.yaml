@@ -1,0 +1,19 @@
+# Smithery configuration for Nexargio Threat Scanner MCP
+# Official Registry Manifest: https://smithery.ai
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      NEXARGIO_API_KEY:
+        type: string
+        description: "Nexargio Sovereign API Key. Optional for complimentary evaluation; required for enterprise production quotas."
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: "uvx",
+      args: ["nexargio-mcp"],
+      env: {
+        ...(config.NEXARGIO_API_KEY ? { NEXARGIO_API_KEY: config.NEXARGIO_API_KEY } : {})
+      }
+    })
