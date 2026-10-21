@@ -1,7 +1,7 @@
 {
   "name": "nexargio-mcp",
-  "displayName": "Nexargio Threat Scanner",
-  "description": "Enterprise zero-day web threat, quishing, and carrier-grade AI defense suite for Cursor.",
+  "displayName": "Nexargio Security & Threat Scanner",
+  "description": "Enterprise security suite for zero-hour web threats, phishing URLs, quishing QR codes, and prompt injection defense.",
   "version": "2.0.1",
   "icon": "assets/icon.png",
   "logo": "assets/logo.png",
