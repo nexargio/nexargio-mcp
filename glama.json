@@ -1,0 +1,24 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "nexargio-mcp",
+  "description": "Sovereign AI Security Suite & Threat Scanner. Real-time detection for phishing URLs, zero-day web threats, quishing QR codes, prompt injection defense, carrier disarming (AI-CDR), and autonomous agent safety guardrails.",
+  "maintainers": [
+    "nexargio"
+  ],
+  "type": "mcp_server",
+  "status": "stable",
+  "transport": [
+    "stdio"
+  ],
+  "keywords": [
+    "security",
+    "phishing",
+    "zero-day",
+    "prompt-injection",
+    "ai-safety",
+    "quishing",
+    "ai-cdr",
+    "guardrails",
+    "threat-intelligence"
+  ]
+}
