@@ -330,8 +330,8 @@ async def _try_decode_qr(target: str) -> Optional[str]:
 # GATEWAY COMMUNICATION & TRIAL AUTHENTICATION
 # ==============================================================================
 
-def _get_machine_fingerprint() -> str:
-    """Anonymous client installation identifier (standard session GUID)."""
+def _get_anonymous_session_id() -> str:
+    """Anonymous client installation identifier (standard random session UUID)."""
     try:
         import uuid
         base = os.path.expanduser("~/.nexargio")
@@ -379,7 +379,7 @@ def _save_cached_trial_key(key: str) -> None:
         with open(p, "w", encoding="utf-8") as f:
             json.dump({
                 "api_key": key,
-                "fingerprint": _get_machine_fingerprint(),
+                "session_id": _get_anonymous_session_id(),
                 "created_at": time.time()
             }, f)
     except Exception:
@@ -391,7 +391,7 @@ async def _resolve_api_key() -> Tuple[Optional[str], bool]:
     Resolves the active API key. Returns (api_key, is_trial).
     If NEXARGIO_API_KEY is supplied, uses enterprise production credentials.
     Otherwise, checks local cached evaluation key or provisions a 20-scan
-    complimentary evaluation key anchored to the hardware deployment ID.
+    complimentary evaluation key anchored to an anonymous session ID.
     """
     global API_KEY
     if API_KEY:
@@ -404,9 +404,9 @@ async def _resolve_api_key() -> Tuple[Optional[str], bool]:
     if not _AUTO_TRIAL_ENABLED:
         return None, False
 
-    # Auto-provision complimentary evaluation key with hardware anti-abuse
+    # Auto-provision complimentary evaluation key with anonymous session ID
     try:
-        dep_id = _get_machine_fingerprint()
+        dep_id = _get_anonymous_session_id()
         headers = {
             "User-Agent": f"Nexargio-MCP/{__version__} (Sovereign AI Defense Suite)",
             "X-Nexargio-Deployment-ID": dep_id,
@@ -438,7 +438,7 @@ async def _call_gateway(url: str, scan_mode: str, token: str) -> Dict[str, Any]:
     Returns the parsed result dict on success, or a fail-closed _incomplete()
     result for auth/quota errors. Raises _GatewayUnavailable on network/5xx failure.
     """
-    dep_id = _get_machine_fingerprint()
+    dep_id = _get_anonymous_session_id()
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
